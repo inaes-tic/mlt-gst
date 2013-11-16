@@ -1,0 +1,11 @@
+GstMltSHMProto
+
+A GStreamer element to demux audio and video from the gstshm MLT consumer.
+
+Basic usage:
+
+Launch one of:
+    melt [some video or producer] -consumer gstshm
+
+and one or more of:
+    gst-launch-1.0 shmsrc socket-path=/dev/shm/mlt.shm ! mltshmdemux name=demux  ! video/x-raw ! queue2 ! autovideosink  demux. ! audio/x-raw ! queue2 ! autoaudiosink
